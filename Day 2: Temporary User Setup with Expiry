@@ -12,3 +12,20 @@ Note: You can find the infrastructure details by clicking on the Details of all
 ssh banner@stapp03.stratos.xfusioncorp.com
 sudo useradd anita
 sudo chage -E 2024-04-15 anita
+
+
+/* 3.task Group Creation and User Assignment
+
+The system admin team at xFusionCorp Industries has streamlined access management by implementing group-based access control. Here's what you need to do:
+a. Create a group named nautilus_noc across all App servers within the Stratos Datacenter.
+b. Add the user stark into the nautilus_noc group on all App servers. If the user doesn't exist, create it as well.
+Note: You can find the infrastructure details by clicking on the Details of all Users and Servers button on the top-right section of the page. */
+
+Solution
+
+ssh tony@stapp01.stratos.xfusioncorp.com
+sudo groupadd -f nautilus_noc
+id -u stark || sudo useradd stark
+sudo usermod -aG nautilus_noc stark
+
+/*Since there are 3 App servers (stapp01, stapp02, and stapp03), you need to run the commands 3 times in total—once on each server.*/
