@@ -3,3 +3,5 @@
 //Create the user with a non-interactive shell, e.g., /sbin/nologin:
 
 sudo useradd -s /sbin/nologin username
+sudo useradd -s /sbin/nologin developer
+sudo passwd -l developer
