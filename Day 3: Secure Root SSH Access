@@ -1,0 +1,54 @@
+// Day 3: Secure Root SSH Access
+
+Following security audits, the xFusionCorp Industries security team has rolled out new protocols, including the restriction of direct root SSH login.
+
+
+Your task is to disable direct SSH root login on all app servers within the Stratos Datacenter.
+
+Solution 
+
+To disable direct SSH root login for all app servers in the Stratos Datacenter, update the SSH configuration on each server so that the root account cannot access the system via SSH.
+
+Steps to Disable Direct Root SSH Login
+Log in to each app server with its respective non-root admin account:
+
+stapp01: tony
+
+stapp02: steve
+
+stapp03: banner
+
+Edit the SSH configuration file using a text editor, e.g., vim or nano:
+
+Command: sudo vi /etc/ssh/sshd_config
+
+Locate the line PermitRootLogin yes. If the line is commented (#PermitRootLogin yes), uncomment and change it to PermitRootLogin no.
+
+Save and close the configuration file.
+
+Restart the SSH service for changes to take effect:
+
+sudo systemctl restart sshd
+
+You may also check its status: sudo systemctl status sshd
+
+Impact and Rationale
+Disabling direct root login closes a major security vulnerability and reduces the risk of brute-force attacks.
+
+Administrators should log in using their own accounts and then escalate privileges with sudo as needed, maintaining accountability and better audit trails.
+
+These changes must be applied to every app server to meet xFusionCorp Industries’ new protocols and secure the Stratos Datacenter against unauthorized root access.
+
+
+
+
+example : 1 
+ssh tony@stapp01
+sudo vi /etc/ssh/sshd_config
+# Disable direct SSH root login for security compliance
+PermitRootLogin no
+sudo systemctl restart sshd
+sudo systemctl status sshd
+
+
+Like that we need to do for all 3 users
