@@ -1,0 +1,26 @@
+
+
+Last login: Wed Sep 17 15:16:35 UTC 2025 on pts/0
+thor@jumphost ~$ ssh tony@stapp01
+The authenticity of host 'stapp01 (172.16.238.10)' can't be established.
+ED25519 key fingerprint is SHA256:mHCN0df7+gXot3DfF1Jv+GcuXmjS6kwixvaYNuXqUB8.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'stapp01' (ED25519) to the list of known hosts. 
+tony@stapp01's password: 
+[tony@stapp01 ~]$ sudo useradd -M john
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for tony: 
+[tony@stapp01 ~]$ cat /etc/passwd | grep john
+ls /home/
+john:x:1002:1002::/home/john:/bin/bash
+ansible  tony
+[tony@stapp01 ~]$ 
+
